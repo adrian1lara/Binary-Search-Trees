@@ -6,3 +6,5 @@ const tree = new Tree(dataArray);
 tree.insert(22);
 tree.delete(6345);
 prettyPrint(tree.root);
+prettyPrint(tree.find(22));
+tree.levelOrder(prettyPrint);
