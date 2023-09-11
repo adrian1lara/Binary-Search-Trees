@@ -78,6 +78,36 @@ class Tree {
         return root;
     }
 
+    find(data) {
+        return this._find(this.root, data);
+    }
+
+    _find(node, data) {
+        if(node === null) {
+            return null;
+        }
+        if(data < node.data) {
+            return this._find(node.left, data);
+        } else if (data > node.data) {
+            return this._find(node.right, data);
+        } else {
+            return node;
+        }
+    }
+
+    levelOrder(func) {
+        this._levelOrder(this.root, func);
+    }
+
+    _levelOrder(node, func) {
+        if(node === null) {
+            return;
+        }
+        func(node);
+        this._levelOrder(node.left, func);
+        this._levelOrder(node.right, func);
+    }
+
 }
 
 export default Tree
